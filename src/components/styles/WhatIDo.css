@@ -40,6 +40,7 @@
   margin-left: 50px;
   position: relative;
   width: 100%;
+  z-index: 5;
 }
 .what-content {
   width: 100%;
@@ -49,9 +50,11 @@
   position: relative;
   padding: 40px;
   box-sizing: border-box;
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(10, 15, 29, 0.7);
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
 }
 
 .what-noTouch:hover,
@@ -282,6 +285,8 @@
 @media only screen and (max-width: 900px) {
   .whatIDO {
     flex-direction: column;
+    height: auto;
+    padding-bottom: 70px;
   }
   .what-box h2 {
     margin: 50px 0;
@@ -292,7 +297,7 @@
     justify-content: left;
   }
   .what-box:last-child {
-    height: 500px;
+    height: auto;
   }
   .what-box {
     width: 500px;
@@ -301,6 +306,7 @@
   }
   .what-content {
     width: 100%;
+    min-width: 100% !important;
   }
   .what-box-in {
     grid-template-columns: 1fr;
@@ -329,6 +335,7 @@
     place-items: inherit;
     align-items: start;
     justify-content: left;
+    padding-bottom: 60px;
   }
   .what-box {
     max-width: calc(100% - 25px);

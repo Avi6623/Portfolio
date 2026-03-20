@@ -4,25 +4,27 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 0;
+  z-index: -1;
   pointer-events: none;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  opacity: 0.25; /* Higher opacity for readability */
-  transform: rotate(-2deg) scale(1.2); /* Slight organic tilt */
+  opacity: 0.14;
+  transform: rotate(-2deg) scale(1.2);
 }
 
-.bg-row-1, .bg-row-2, .bg-row-3 {
+.bg-row-1,
+.bg-row-2,
+.bg-row-3 {
   width: 100%;
   white-space: nowrap;
-  font-family: 'Fira Code', 'Courier New', Courier, monospace;
-  font-size: 14px; /* Thin, snake-like data streams */
+  font-family: "Fira Code", "Courier New", Courier, monospace;
+  font-size: 14px;
   font-weight: 500;
-  color: #00d8ff; /* Cyber Cyan */
+  color: #00d8ff;
   letter-spacing: 4px;
-  text-shadow: 0 0 8px rgba(0, 216, 255, 0.6); /* Glowing effect */
+  text-shadow: 0 0 6px rgba(0, 216, 255, 0.45);
 }
 
 .bg-scroll-text {
@@ -30,23 +32,47 @@
 }
 
 .bg-row-1 .bg-scroll-text {
-  animation: scrollLeft 40s linear infinite;
+  animation: scrollLeft 72s linear infinite;
 }
 
 .bg-row-2 .bg-scroll-text {
-  animation: scrollRight 35s linear infinite;
+  animation: scrollRight 68s linear infinite;
 }
 
 .bg-row-3 .bg-scroll-text {
-  animation: scrollLeft 45s linear infinite;
+  animation: scrollLeft 78s linear infinite;
 }
 
 @keyframes scrollLeft {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 @keyframes scrollRight {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .bg-effect-container {
+    opacity: 0.1;
+    transform: rotate(-1deg) scale(1.1);
+  }
+
+  .bg-row-1,
+  .bg-row-2,
+  .bg-row-3 {
+    font-size: 12px;
+    letter-spacing: 3px;
+  }
 }
