@@ -35,14 +35,14 @@ const Landing = ({ children }: PropsWithChildren) => {
           </div>
           <div className="landing-info">
             <h3>Building robust digital ecosystems...</h3>
-            <h2 className="landing-info-h2">
+            <div className="landing-info-h2" aria-hidden="true">
               <div className="landing-h2-1">Full-Stack Developer</div>
               <div className="landing-h2-2">Backend-Leaning</div>
-            </h2>
-            <h2>
+            </div>
+            <div className="landing-roles-secondary" aria-hidden="true">
               <div className="landing-h2-info">Backend-Leaning</div>
               <div className="landing-h2-info-1">Full-Stack Developer</div>
-            </h2>
+            </div>
             <div className="metrics-banner" style={{ display: 'flex', gap: '15px', marginTop: '30px', color: 'var(--accentColor)', fontSize: '14px', letterSpacing: '1px', fontWeight: 600, flexWrap: 'wrap' }}>
               <span>Node.js APIs</span> • <span>React & React Native</span> • <span>Real-Time Systems</span>
             </div>
