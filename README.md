@@ -7,6 +7,10 @@
 
 Welcome to the open-source repository for my personal developer portfolio. Designed with an ultra-premium "system architecture" aesthetic, this portfolio specifically showcases my primary focus: **Backend Engineering, Scalable APIs, and Robust Cloud Systems**.
 
+## Live Demo
+
+- **Portfolio:** https://avneesh-tech.vercel.app
+
 ## 🚀 Features
 
 - **Live Terminal Simulator:** Fully operational simulated `/bash` terminal with active command execution (`projects`, `ping`, `whoami`, `techstack`, `clear`, `quit`).
