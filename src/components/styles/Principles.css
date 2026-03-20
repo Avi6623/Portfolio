@@ -1,0 +1,83 @@
+.principles-section {
+  width: 100%;
+  padding: 100px 0;
+  position: relative;
+  z-index: 5;
+}
+
+.principles-container {
+  max-width: var(--cMaxWidth);
+  width: var(--cWidth);
+  margin: 0 auto;
+}
+
+.principles-title {
+  font-size: 50px;
+  margin-bottom: 60px;
+  font-weight: 600;
+  text-align: center;
+  color: #fff;
+}
+
+.principles-title span {
+  color: var(--accentColor);
+}
+
+.principles-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 30px;
+}
+
+@media (min-width: 640px) {
+  .principles-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .principles-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.principle-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 40px 30px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.principle-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--accentColor);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4), inset 0 0 40px rgba(244, 63, 94, 0.05);
+}
+
+.principle-icon {
+  font-size: 40px;
+  margin-bottom: 20px;
+  display: inline-block;
+  background: rgba(255,255,255,0.05);
+  padding: 15px;
+  border-radius: 12px;
+}
+
+.principle-card h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.principle-card p {
+  font-size: 15px;
+  color: #aaa;
+  line-height: 1.6;
+}

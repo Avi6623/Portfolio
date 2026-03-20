@@ -1,0 +1,52 @@
+.bg-effect-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  opacity: 0.25; /* Higher opacity for readability */
+  transform: rotate(-2deg) scale(1.2); /* Slight organic tilt */
+}
+
+.bg-row-1, .bg-row-2, .bg-row-3 {
+  width: 100%;
+  white-space: nowrap;
+  font-family: 'Fira Code', 'Courier New', Courier, monospace;
+  font-size: 14px; /* Thin, snake-like data streams */
+  font-weight: 500;
+  color: #00d8ff; /* Cyber Cyan */
+  letter-spacing: 4px;
+  text-shadow: 0 0 8px rgba(0, 216, 255, 0.6); /* Glowing effect */
+}
+
+.bg-scroll-text {
+  display: inline-block;
+}
+
+.bg-row-1 .bg-scroll-text {
+  animation: scrollLeft 40s linear infinite;
+}
+
+.bg-row-2 .bg-scroll-text {
+  animation: scrollRight 35s linear infinite;
+}
+
+.bg-row-3 .bg-scroll-text {
+  animation: scrollLeft 45s linear infinite;
+}
+
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scrollRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
