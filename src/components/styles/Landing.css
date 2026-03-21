@@ -381,7 +381,12 @@
     text-align: left;
     transform: translate(0%, -50%);
     right: auto;
-    left: 55%;
+    left: 50%;
+    width: min(48vw, 820px);
+  }
+
+  .landing-roles-secondary {
+    margin-left: 0;
   }
 }
 
@@ -400,7 +405,12 @@
     text-align: left;
     transform: translate(0%, -50%);
     right: auto;
-    left: 55%;
+    left: 50%;
+    width: min(48vw, 820px);
+  }
+
+  .landing-roles-secondary {
+    margin-left: 0;
   }
 }
 

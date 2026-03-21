@@ -13,32 +13,44 @@ const education = [
     degree: "Bachelor of Computer Applications (BCA), Information Technology",
     duration: "Aug 2023 - Jun 2026",
     details:
-      "Focused on software development, backend concepts, databases, and UI/UX design with practical project work.",
+      "Actively learning full-stack development and UI/UX with practical project execution in React Native and Node.js.",
   },
   {
     institute: "A. Mukherjee & Co.",
     degree: "Class 10",
     duration: "State Board",
-    details: "Built strong core fundamentals in mathematics and computer basics.",
+    details: "Strong academic fundamentals and disciplined learning base.",
   },
   {
     institute: "Amity Institute",
     degree: "Bachelor of Computer Applications",
     duration: "CGPA: 6.87/10",
-    details: "Academic profile emphasizing application development and modern software tooling.",
+    details: "Application development focused coursework and hands-on software projects.",
   },
   {
     institute: "Bhagirath Inks",
     degree: "Class 12",
     duration: "State Board",
-    details: "Higher secondary education with consistent performance and technical curiosity.",
+    details: "Higher secondary foundation with growing interest in technology and design.",
   },
   {
     institute: "CT Group of Institutions",
     degree: "ADCA",
     duration: "Diploma",
-    details: "Early formal computer applications training and productivity tooling.",
+    details: "Formal introduction to computer applications and system fundamentals.",
   },
+];
+
+const projects = [
+  "Centralized Backend API",
+  "Customer App",
+  "Admin Panel",
+  "Rider App",
+  "Super Admin Panel",
+  "NGOServe",
+  "NGOConnect",
+  "Shared NGO Backend API",
+  "NGOConnect Legacy",
 ];
 
 const skills = [
@@ -54,6 +66,8 @@ const skills = [
   "Vite",
 ];
 
+const resumePdfPath = "/docs/Avneesh_Shukla_CV.pdf";
+
 const ResumePanel = ({ isOpen, onClose }: Props) => {
   const resumeHtml = useMemo(() => {
     const educationHtml = education
@@ -62,6 +76,8 @@ const ResumePanel = ({ isOpen, onClose }: Props) => {
           `<li><strong>${item.institute}</strong> - ${item.degree} (${item.duration})<br/>${item.details}</li>`
       )
       .join("");
+
+    const projectsHtml = projects.map((project) => `<li>${project}</li>`).join("");
 
     return `<!DOCTYPE html>
 <html lang="en">
@@ -73,7 +89,7 @@ const ResumePanel = ({ isOpen, onClose }: Props) => {
 body{font-family:Arial,sans-serif;line-height:1.5;max-width:900px;margin:20px auto;padding:20px;color:#111}
 h1{margin-bottom:4px}h2{margin-top:24px;border-bottom:1px solid #ddd;padding-bottom:6px}
 .badge{display:inline-block;margin:4px 6px 0 0;padding:5px 10px;border:1px solid #ddd;border-radius:999px;font-size:12px}
-li{margin-bottom:10px}
+li{margin-bottom:8px}
 </style>
 </head>
 <body>
@@ -81,9 +97,11 @@ li{margin-bottom:10px}
 <p>Full-Stack Developer (Backend-Leaning)</p>
 <p>Email: avneesh.amity@gmail.com | LinkedIn: https://www.linkedin.com/in/avneesh-shukla-453a922b6/ | GitHub: https://github.com/Avi6623</p>
 <h2>Professional Summary</h2>
-<p>Backend-focused full-stack developer experienced in building secure APIs, real-time systems, and scalable web/mobile products with production-oriented engineering practices.</p>
+<p>Backend-focused full-stack developer experienced in building secure APIs, real-time systems, and scalable web/mobile products with measurable outcomes.</p>
 <h2>Skills</h2>
 <div>${skills.map((s) => `<span class="badge">${s}</span>`).join("")}</div>
+<h2>Project Portfolio</h2>
+<ul>${projectsHtml}</ul>
 <h2>Education</h2>
 <ul>${educationHtml}</ul>
 </body>
@@ -91,11 +109,20 @@ li{margin-bottom:10px}
   }, []);
 
   const downloadResume = () => {
+    const anchor = document.createElement("a");
+    anchor.href = resumePdfPath;
+    anchor.download = "Avneesh_Shukla_CV.pdf";
+    document.body.appendChild(anchor);
+    anchor.click();
+    document.body.removeChild(anchor);
+  };
+
+  const downloadWebVersion = () => {
     const blob = new Blob([resumeHtml], { type: "text/html;charset=utf-8" });
     const url = URL.createObjectURL(blob);
     const anchor = document.createElement("a");
     anchor.href = url;
-    anchor.download = "Avneesh-Shukla-Resume.html";
+    anchor.download = "Avneesh-Shukla-Resume-Web.html";
     document.body.appendChild(anchor);
     anchor.click();
     document.body.removeChild(anchor);
@@ -113,7 +140,7 @@ li{margin-bottom:10px}
 
         <header className="resume-header">
           <h2>Avneesh Shukla</h2>
-          <p>Full-Stack Developer (Backend-Leaning)</p>
+          <p>Top 1% Backend-Leaning Full-Stack Developer Profile</p>
           <div className="resume-links">
             <a href="mailto:avneesh.amity@gmail.com">avneesh.amity@gmail.com</a>
             <a href="https://www.linkedin.com/in/avneesh-shukla-453a922b6/" target="_blank" rel="noreferrer">
@@ -126,11 +153,10 @@ li{margin-bottom:10px}
         </header>
 
         <section>
-          <h3>Summary</h3>
+          <h3>Executive Summary</h3>
           <p>
-            Backend-focused full-stack developer with hands-on experience in building secure APIs,
-            real-time systems, and scalable web/mobile products. Strong ownership mindset with
-            measurable engineering outcomes.
+            Product-minded engineer with strong backend ownership. Built multi-app ecosystems,
+            real-time systems, admin platforms, and secure APIs with measurable performance impact.
           </p>
         </section>
 
@@ -139,6 +165,17 @@ li{margin-bottom:10px}
           <div className="resume-skill-grid">
             {skills.map((skill) => (
               <span key={skill}>{skill}</span>
+            ))}
+          </div>
+        </section>
+
+        <section>
+          <h3>Project Portfolio</h3>
+          <div className="resume-project-list">
+            {projects.map((project, index) => (
+              <article key={project}>
+                <h4>{index + 1}. {project}</h4>
+              </article>
             ))}
           </div>
         </section>
@@ -159,7 +196,10 @@ li{margin-bottom:10px}
 
         <footer className="resume-actions">
           <button onClick={downloadResume}>
-            <MdDownload /> Download Resume
+            <MdDownload /> Download CV (PDF)
+          </button>
+          <button onClick={downloadWebVersion}>
+            <MdDownload /> Download Web Resume
           </button>
           <button onClick={() => window.print()}>
             <MdPrint /> Print / Save PDF
