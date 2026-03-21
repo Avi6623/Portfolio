@@ -253,7 +253,8 @@
   text-transform: uppercase;
   letter-spacing: clamp(0.8px, 0.35vw, 2px);
   width: 100%;
-  overflow: hidden;
+  overflow-x: visible;
+  overflow-y: hidden;
   min-height: 1.25em;
 }
 

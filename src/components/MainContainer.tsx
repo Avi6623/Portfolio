@@ -10,6 +10,7 @@ import Navbar from "./Navbar";
 import SocialIcons from "./SocialIcons";
 import WhatIDo from "./WhatIDo";
 import Work from "./Work";
+import PortfolioLab from "./PortfolioLab";
 import setSplitText from "./utils/splitText";
 import BackgroundEffect from "./BackgroundEffect";
 
@@ -43,6 +44,7 @@ const MainContainer = ({ children }: PropsWithChildren) => {
         <div id="smooth-content">
           <div className="container-main">
             <Landing>{!isDesktopView && children}</Landing>
+            <PortfolioLab />
             <About />
             <Principles />
             <WhatIDo />

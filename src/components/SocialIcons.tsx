@@ -5,10 +5,13 @@ import {
 } from "react-icons/fa6";
 import "./styles/SocialIcons.css";
 import { TbNotes } from "react-icons/tb";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import HoverLinks from "./HoverLinks";
+import ResumePanel from "./ResumePanel";
 
 const SocialIcons = () => {
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
+
   useEffect(() => {
     const social = document.getElementById("social") as HTMLElement;
 
@@ -75,12 +78,17 @@ const SocialIcons = () => {
           </a>
         </span>
       </div>
-      <a className="resume-button" href="#">
+      <button
+        className="resume-button"
+        onClick={() => setIsResumeOpen(true)}
+        data-cursor="disable"
+      >
         <HoverLinks text="RESUME" />
         <span>
           <TbNotes />
         </span>
-      </a>
+      </button>
+      <ResumePanel isOpen={isResumeOpen} onClose={() => setIsResumeOpen(false)} />
     </div>
   );
 };
