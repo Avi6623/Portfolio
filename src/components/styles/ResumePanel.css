@@ -80,6 +80,20 @@
   line-height: 1.65;
 }
 
+.resume-pdf-wrap {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.resume-pdf-frame {
+  width: 100%;
+  height: 62vh;
+  border: 0;
+  display: block;
+}
+
 .resume-skill-grid {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -118,6 +132,18 @@
   font-size: 14px;
   font-weight: 600;
   color: #deeff4;
+}
+
+.resume-project-list ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+}
+
+.resume-project-list li {
+  color: #bfd3dd;
+  font-size: 13px;
+  line-height: 1.45;
+  margin-bottom: 6px;
 }
 
 .resume-education-list article {
@@ -172,6 +198,10 @@
 
   .resume-project-list {
     grid-template-columns: 1fr;
+  }
+
+  .resume-pdf-frame {
+    height: 52vh;
   }
 }
 

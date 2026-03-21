@@ -1,4 +1,3 @@
-import { useMemo } from "react";
 import { MdClose, MdDownload, MdPrint } from "react-icons/md";
 import "./styles/ResumePanel.css";
 
@@ -7,107 +6,131 @@ type Props = {
   onClose: () => void;
 };
 
+type Project = {
+  title: string;
+  stack: string;
+  highlights: string[];
+};
+
+const resumePdfPath = "/docs/Avneesh_Shukla_CV.pdf";
+
+const skills = {
+  backend: ["Node.js", "Express.js", "MongoDB", "Redis", "Socket.IO", "JWT", "RBAC"],
+  frontend: ["React.js", "React Native", "TypeScript", "Vite", "TailwindCSS"],
+  tools: ["Git", "REST APIs", "Deployment Basics", "System Design Fundamentals"],
+};
+
+const projects: Project[] = [
+  {
+    title: "Centralized Backend API",
+    stack: "Node.js, Express, MongoDB, Redis, Socket.IO",
+    highlights: [
+      "Built secure REST + realtime API foundation for multiple products.",
+      "Implemented authentication and role-based access controls.",
+      "Added caching and background-job style workflows for better performance.",
+    ],
+  },
+  {
+    title: "Customer App",
+    stack: "React Native",
+    highlights: [
+      "Developed customer-facing app flows for discovery and checkout.",
+      "Integrated live updates with backend events for smooth UX.",
+    ],
+  },
+  {
+    title: "Admin Panel",
+    stack: "React.js",
+    highlights: [
+      "Created operations dashboard for monitoring, analytics, and control.",
+      "Connected panel with backend modules and secured role-based actions.",
+    ],
+  },
+  {
+    title: "Rider App",
+    stack: "React Native, Geolocation",
+    highlights: [
+      "Implemented rider-facing workflows with real-time tracking support.",
+      "Handled location updates and session-based operational flows.",
+    ],
+  },
+  {
+    title: "Super Admin Panel",
+    stack: "React.js, Vite",
+    highlights: [
+      "Built high-level management layer with multi-system visibility.",
+      "Added privileged controls and consolidated oversight workflows.",
+    ],
+  },
+  {
+    title: "NGOServe",
+    stack: "React, TypeScript, Node.js",
+    highlights: [
+      "Developed NGO operations dashboard for campaigns, events, and teams.",
+      "Supported donation operations and activity visibility.",
+    ],
+  },
+  {
+    title: "NGOConnect",
+    stack: "React, Vite, Node.js",
+    highlights: [
+      "Built public-facing platform for campaigns and volunteer interactions.",
+      "Implemented trust and transparency-focused user journeys.",
+    ],
+  },
+  {
+    title: "Shared NGO Backend API",
+    stack: "Node.js, Express.js",
+    highlights: [
+      "Created shared backend layer used across multiple NGO platforms.",
+      "Maintained compatibility and reusable business logic.",
+    ],
+  },
+  {
+    title: "NGOConnect Legacy",
+    stack: "React, TypeScript",
+    highlights: [
+      "Worked on compatibility-focused frontend for transition scenarios.",
+      "Supported legacy flow continuity during modernization.",
+    ],
+  },
+];
+
 const education = [
   {
     institute: "Amity University Lucknow Campus",
     degree: "Bachelor of Computer Applications (BCA), Information Technology",
     duration: "Aug 2023 - Jun 2026",
     details:
-      "Actively learning full-stack development and UI/UX with practical project execution in React Native and Node.js.",
-  },
-  {
-    institute: "A. Mukherjee & Co.",
-    degree: "Class 10",
-    duration: "State Board",
-    details: "Strong academic fundamentals and disciplined learning base.",
+      "Currently pursuing BCA with practical focus on software development, React Native, Node.js, backend concepts, and UI/UX learning.",
   },
   {
     institute: "Amity Institute",
     degree: "Bachelor of Computer Applications",
     duration: "CGPA: 6.87/10",
-    details: "Application development focused coursework and hands-on software projects.",
+    details: "Academic profile with application development and software fundamentals.",
   },
   {
     institute: "Bhagirath Inks",
-    degree: "Class 12",
-    duration: "State Board",
-    details: "Higher secondary foundation with growing interest in technology and design.",
+    degree: "Class 12 (State Board)",
+    duration: "Higher Secondary",
+    details: "Completed higher secondary education.",
+  },
+  {
+    institute: "A. Mukherjee & Co.",
+    degree: "Class 10 (State Board)",
+    duration: "Secondary",
+    details: "Completed secondary education with strong fundamentals.",
   },
   {
     institute: "CT Group of Institutions",
     degree: "ADCA",
     duration: "Diploma",
-    details: "Formal introduction to computer applications and system fundamentals.",
+    details: "Computer applications diploma foundation.",
   },
 ];
 
-const projects = [
-  "Centralized Backend API",
-  "Customer App",
-  "Admin Panel",
-  "Rider App",
-  "Super Admin Panel",
-  "NGOServe",
-  "NGOConnect",
-  "Shared NGO Backend API",
-  "NGOConnect Legacy",
-];
-
-const skills = [
-  "Node.js",
-  "Express.js",
-  "MongoDB",
-  "Redis",
-  "Socket.IO",
-  "JWT + RBAC",
-  "React.js",
-  "React Native",
-  "TypeScript",
-  "Vite",
-];
-
-const resumePdfPath = "/docs/Avneesh_Shukla_CV.pdf";
-
 const ResumePanel = ({ isOpen, onClose }: Props) => {
-  const resumeHtml = useMemo(() => {
-    const educationHtml = education
-      .map(
-        (item) =>
-          `<li><strong>${item.institute}</strong> - ${item.degree} (${item.duration})<br/>${item.details}</li>`
-      )
-      .join("");
-
-    const projectsHtml = projects.map((project) => `<li>${project}</li>`).join("");
-
-    return `<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Avneesh Shukla Resume</title>
-<style>
-body{font-family:Arial,sans-serif;line-height:1.5;max-width:900px;margin:20px auto;padding:20px;color:#111}
-h1{margin-bottom:4px}h2{margin-top:24px;border-bottom:1px solid #ddd;padding-bottom:6px}
-.badge{display:inline-block;margin:4px 6px 0 0;padding:5px 10px;border:1px solid #ddd;border-radius:999px;font-size:12px}
-li{margin-bottom:8px}
-</style>
-</head>
-<body>
-<h1>Avneesh Shukla</h1>
-<p>Full-Stack Developer (Backend-Leaning)</p>
-<p>Email: avneesh.amity@gmail.com | LinkedIn: https://www.linkedin.com/in/avneesh-shukla-453a922b6/ | GitHub: https://github.com/Avi6623</p>
-<h2>Professional Summary</h2>
-<p>Backend-focused full-stack developer experienced in building secure APIs, real-time systems, and scalable web/mobile products with measurable outcomes.</p>
-<h2>Skills</h2>
-<div>${skills.map((s) => `<span class="badge">${s}</span>`).join("")}</div>
-<h2>Project Portfolio</h2>
-<ul>${projectsHtml}</ul>
-<h2>Education</h2>
-<ul>${educationHtml}</ul>
-</body>
-</html>`;
-  }, []);
-
   const downloadResume = () => {
     const anchor = document.createElement("a");
     anchor.href = resumePdfPath;
@@ -117,16 +140,8 @@ li{margin-bottom:8px}
     document.body.removeChild(anchor);
   };
 
-  const downloadWebVersion = () => {
-    const blob = new Blob([resumeHtml], { type: "text/html;charset=utf-8" });
-    const url = URL.createObjectURL(blob);
-    const anchor = document.createElement("a");
-    anchor.href = url;
-    anchor.download = "Avneesh-Shukla-Resume-Web.html";
-    document.body.appendChild(anchor);
-    anchor.click();
-    document.body.removeChild(anchor);
-    URL.revokeObjectURL(url);
+  const printResume = () => {
+    window.print();
   };
 
   if (!isOpen) return null;
@@ -140,7 +155,7 @@ li{margin-bottom:8px}
 
         <header className="resume-header">
           <h2>Avneesh Shukla</h2>
-          <p>Top 1% Backend-Leaning Full-Stack Developer Profile</p>
+          <p>Fresher Full-Stack Developer (Backend-Leaning)</p>
           <div className="resume-links">
             <a href="mailto:avneesh.amity@gmail.com">avneesh.amity@gmail.com</a>
             <a href="https://www.linkedin.com/in/avneesh-shukla-453a922b6/" target="_blank" rel="noreferrer">
@@ -153,28 +168,41 @@ li{margin-bottom:8px}
         </header>
 
         <section>
-          <h3>Executive Summary</h3>
+          <h3>Professional Summary</h3>
           <p>
-            Product-minded engineer with strong backend ownership. Built multi-app ecosystems,
-            real-time systems, admin platforms, and secure APIs with measurable performance impact.
+            Fresher developer with hands-on project experience across backend APIs, dashboards,
+            and mobile/web applications. Strong learning mindset with practical delivery in
+            Node.js and React ecosystem.
           </p>
         </section>
 
         <section>
           <h3>Core Skills</h3>
           <div className="resume-skill-grid">
-            {skills.map((skill) => (
-              <span key={skill}>{skill}</span>
+            {skills.backend.map((item) => (
+              <span key={`b-${item}`}>{item}</span>
+            ))}
+            {skills.frontend.map((item) => (
+              <span key={`f-${item}`}>{item}</span>
+            ))}
+            {skills.tools.map((item) => (
+              <span key={`t-${item}`}>{item}</span>
             ))}
           </div>
         </section>
 
         <section>
-          <h3>Project Portfolio</h3>
+          <h3>Project Experience</h3>
           <div className="resume-project-list">
-            {projects.map((project, index) => (
-              <article key={project}>
-                <h4>{index + 1}. {project}</h4>
+            {projects.map((project) => (
+              <article key={project.title}>
+                <h4>{project.title}</h4>
+                <p className="degree">{project.stack}</p>
+                <ul>
+                  {project.highlights.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
               </article>
             ))}
           </div>
@@ -196,12 +224,9 @@ li{margin-bottom:8px}
 
         <footer className="resume-actions">
           <button onClick={downloadResume}>
-            <MdDownload /> Download CV (PDF)
+            <MdDownload /> Download Original CV (PDF)
           </button>
-          <button onClick={downloadWebVersion}>
-            <MdDownload /> Download Web Resume
-          </button>
-          <button onClick={() => window.print()}>
+          <button onClick={printResume}>
             <MdPrint /> Print / Save PDF
           </button>
         </footer>

@@ -48,25 +48,27 @@
   z-index: 110;
   display: flex;
   align-items: center;
-  gap: 8px;
-  bottom: 28px;
-  right: 28px;
+  gap: 6px;
+  bottom: 250px;
+  right: 12px;
   width: auto;
   text-wrap: nowrap;
-  letter-spacing: 1.2px;
-  font-size: 14px;
-  line-height: 14px;
+  letter-spacing: 2px;
+  font-size: 13px;
+  line-height: 13px;
   font-weight: 600;
   color: #e9f6ff;
   cursor: pointer;
   transition: 0.3s;
   background: transparent;
   border: 1px solid rgba(0, 216, 255, 0.35);
-  border-radius: 999px;
-  padding: 10px 14px;
+  border-radius: 12px 12px 0 0;
+  padding: 8px 12px;
   background-color: rgba(7, 14, 28, 0.78);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+  transform: rotate(-90deg);
+  transform-origin: right bottom;
 }
 .resume-button:hover {
   color: #fff;
@@ -75,7 +77,7 @@
 }
 .resume-button span {
   color: var(--accentColor);
-  font-size: 18px;
+  font-size: 16px;
   margin-top: 0;
   display: flex;
   align-items: center;
@@ -100,11 +102,11 @@
 }
 @media only screen and (min-width: 768px) {
   .resume-button {
-    font-size: 15px;
-    line-height: 15px;
+    font-size: 14px;
+    line-height: 14px;
   }
   .resume-button span {
-    font-size: 20px;
+    font-size: 17px;
   }
 }
 
@@ -113,5 +115,8 @@
     right: 16px;
     bottom: 16px;
     padding: 9px 12px;
+    transform: none;
+    border-radius: 999px;
+    letter-spacing: 1px;
   }
 }
