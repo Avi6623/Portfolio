@@ -102,31 +102,28 @@ const education = [
     degree: "Bachelor of Computer Applications (BCA), Information Technology",
     duration: "Expected Graduation: 2026",
     details:
-      "Completed BCA with a practical focus on software development, React Native, Node.js, backend concepts, and UI/UX fundamentals.",
-  },
-  {
-    institute: "Amity Institute",
-    degree: "Bachelor of Computer Applications",
-    duration: "CGPA: 6.87/10",
-    details: "Academic profile with application development and software fundamentals.",
+      "Focused on software development with practical learning in React Native, Node.js, backend concepts, and UI/UX design.",
   },
   {
     institute: "Bhagirath Inks",
     degree: "Class 12 (State Board)",
     duration: "Higher Secondary",
-    details: "Completed higher secondary education.",
+    details:
+      "Built core understanding in academics while actively developing interest in technology and problem solving.",
   },
   {
     institute: "A. Mukherjee & Co.",
     degree: "Class 10 (State Board)",
     duration: "Secondary",
-    details: "Completed secondary education with strong fundamentals.",
+    details:
+      "Completed secondary education with strong fundamentals in discipline, reasoning, and consistency.",
   },
   {
     institute: "CT Group of Institutions",
     degree: "ADCA",
     duration: "Diploma",
-    details: "Computer applications diploma foundation.",
+    details:
+      "Completed ADCA diploma with foundational training in computer applications and practical digital skills.",
   },
 ];
 
