@@ -100,7 +100,7 @@ const education = [
   {
     institute: "Amity University Lucknow Campus",
     degree: "Bachelor of Computer Applications (BCA), Information Technology",
-    duration: "Aug 2023 - Jun 2026",
+    duration: "Expected Graduation: 2026",
     details:
       "Currently pursuing BCA with practical focus on software development, React Native, Node.js, backend concepts, and UI/UX learning.",
   },
@@ -127,6 +127,29 @@ const education = [
     degree: "ADCA",
     duration: "Diploma",
     details: "Computer applications diploma foundation.",
+  },
+];
+
+const experience = [
+  {
+    role: "Volunteer",
+    organization: "Amity Amphoria",
+    duration: "2023 & 2024",
+    highlights: [
+      "Supported event operations and on-ground coordination with team ownership.",
+      "Handled time-critical responsibilities with consistency and discipline.",
+      "Strengthened communication, collaboration, and problem-solving under pressure.",
+    ],
+  },
+  {
+    role: "Hands-on Builder",
+    organization: "Personal & Academic Projects",
+    duration: "Ongoing",
+    highlights: [
+      "Built multiple end-to-end products while balancing academics and practical delivery.",
+      "Continuously upskilling in backend engineering, APIs, and production-focused development.",
+      "Known for reliability, execution speed, and learning mindset.",
+    ],
   },
 ];
 
@@ -187,6 +210,25 @@ const ResumePanel = ({ isOpen, onClose }: Props) => {
             ))}
             {skills.tools.map((item) => (
               <span key={`t-${item}`}>{item}</span>
+            ))}
+          </div>
+        </section>
+
+        <section>
+          <h3>Experience</h3>
+          <div className="resume-education-list">
+            {experience.map((item) => (
+              <article key={`${item.organization}-${item.duration}`}>
+                <h4>
+                  {item.role} - {item.organization}
+                </h4>
+                <p className="duration">{item.duration}</p>
+                <ul>
+                  {item.highlights.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+              </article>
             ))}
           </div>
         </section>

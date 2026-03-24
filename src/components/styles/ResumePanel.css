@@ -153,6 +153,18 @@
   background: rgba(255, 255, 255, 0.02);
 }
 
+.resume-education-list ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+}
+
+.resume-education-list li {
+  color: #bfd3dd;
+  font-size: 13px;
+  line-height: 1.45;
+  margin-bottom: 6px;
+}
+
 .resume-education-list h4 {
   margin: 0;
   font-size: 18px;
