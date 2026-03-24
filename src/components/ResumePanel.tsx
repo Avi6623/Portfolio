@@ -102,7 +102,7 @@ const education = [
     degree: "Bachelor of Computer Applications (BCA), Information Technology",
     duration: "Expected Graduation: 2026",
     details:
-      "Currently pursuing BCA with practical focus on software development, React Native, Node.js, backend concepts, and UI/UX learning.",
+      "Completed BCA with a practical focus on software development, React Native, Node.js, backend concepts, and UI/UX fundamentals.",
   },
   {
     institute: "Amity Institute",

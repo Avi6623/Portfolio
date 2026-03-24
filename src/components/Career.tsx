@@ -57,7 +57,8 @@ const Career = () => {
               <h3 style={{ whiteSpace: 'nowrap' }}>2023—26</h3>
             </div>
             <p>
-              Started my journey as a developer here. Completed my 6th semester on March 19, 2026, building a strong foundation in software engineering, algorithms, and practical product development.
+              Started my developer journey here and built a strong foundation in software engineering,
+              algorithms, and practical product development through consistent project work and disciplined execution.
             </p>
           </div>
           <div className="career-info-box custom-glass-card">
